@@ -24,10 +24,4 @@ public class ToastUtils {
         Toast.makeText(MyApplication.INSTANCE,textId,Toast.LENGTH_SHORT).show();
     }
 
-    public static void showLoading(){
-
-    }
-    public static void hideLoading(){
-
-    }
 }

@@ -4,7 +4,7 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
-import com.hc.homecare.MyApplication;
+import com.af.appfram.MyApplication;
 
 /**
  * Created by winton on 2017/6/26.
