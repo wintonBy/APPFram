@@ -63,4 +63,6 @@ public abstract class BaseActivity<P extends BasePresenter> extends Activity imp
             mPresenter.attachView(this);
         }
     }
+
+
 }

@@ -33,4 +33,5 @@ public class BasePresenter<V extends IView> implements IPresenter {
     public IView getView() {
         return (V)actReference.get();
     }
+
 }

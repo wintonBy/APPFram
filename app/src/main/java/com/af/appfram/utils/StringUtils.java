@@ -12,7 +12,7 @@ import java.lang.reflect.Type;
  * Created by winton on 2017/7/16.
  */
 
-public class StringUtils {
+public final class StringUtils {
 
     /**
      * 处理异常的Gson

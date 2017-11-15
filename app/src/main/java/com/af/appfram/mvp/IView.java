@@ -5,4 +5,5 @@ package com.af.appfram.mvp;
  */
 
 public interface IView {
+
 }

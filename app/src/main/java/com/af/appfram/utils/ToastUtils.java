@@ -9,6 +9,7 @@ import com.af.appfram.MyApplication;
 
 /**
  * Created by winton on 2017/6/26.
+ * toast工具类
  */
 
 public class ToastUtils {
