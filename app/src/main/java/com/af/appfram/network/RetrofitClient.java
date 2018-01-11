@@ -3,6 +3,8 @@ package com.af.appfram.network;
 import android.content.Context;
 import android.text.TextUtils;
 
+import com.af.appfram.network.response.CategoryResponse;
+
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
@@ -79,6 +81,8 @@ public class RetrofitClient {
         };
     }
 
+    /****************************************接口实现*********************************************/
+
     public void post(String url , Map<String,String> params, Subscriber<ResponseBody> subscriber){
         mServer.executePost(url,params)
                 .compose(schedulersTransForm())
@@ -87,6 +91,12 @@ public class RetrofitClient {
 
     public void get(String url,Map<String,String> params,Subscriber<ResponseBody> subscriber){
         mServer.executeGet(url,params)
+                .compose(schedulersTransForm())
+                .subscribe(subscriber);
+    }
+
+    public void getCategory(String category, int count , int page, Subscriber<CategoryResponse> subscriber){
+        mServer.getCategory(category,count,page)
                 .compose(schedulersTransForm())
                 .subscribe(subscriber);
     }

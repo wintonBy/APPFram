@@ -1,8 +1,9 @@
 apply plugin: 'com.android.application'
+apply plugin: 'android-aspectjx'
 
 android {
     compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    buildToolsVersion '26.0.2'
     defaultConfig {
         applicationId "com.af.appfram"
         minSdkVersion 15
@@ -45,6 +46,9 @@ dependencies {
 
     /*gson*/
     compile 'com.google.code.gson:gson:2.8.0'
+
+    compile 'org.aspectj:aspectjrt:1.8.9'
+
 
 }
 

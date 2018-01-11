@@ -15,7 +15,7 @@ public class DevelopConfig {
     public static final int LOG_LEVEL = LogUtils.LEVEL.DEBUG;
 
     // SDCard根目录名称
-    public static final String ROOT_DIR_NAME = "WasuEnjoyTV";
+    public static final String ROOT_DIR_NAME = "AppFram";
 
     public static final String LOG_DIR = "/Logs/";
 

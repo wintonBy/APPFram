@@ -1,9 +1,12 @@
 package com.af.appfram.presenter;
 
+import android.app.Application;
+
 import com.af.appfram.MyApplication;
 import com.af.appfram.contract.TestContract;
 import com.af.appfram.network.BaseSubscriber;
 import com.af.appfram.network.RetrofitClient;
+import com.af.appfram.network.response.CategoryResponse;
 import com.af.appfram.ui.activity.TestActivity;
 
 import java.util.HashMap;
@@ -23,23 +26,11 @@ public class TestPresenter extends BasePresenter<TestActivity> {
     }
 
     public void testGet(){
-        String url = "";
-        RetrofitClient.getInstance(MyApplication.INSTANCE).get(url,new HashMap<String, String>(),new BaseSubscriber<ResponseBody>(){
+
+        RetrofitClient.getInstance(MyApplication.INSTANCE).getCategory("android",10,1,new BaseSubscriber<CategoryResponse>(){
             @Override
-            public void onError(Throwable e) {
-                super.onError(e);
-               mView.showResult(e.getMessage());
-            }
-
-            @Override
-            public void onNext(ResponseBody responseBody) {
-                super.onNext(responseBody);
-                try {
-                    mView.showResult(responseBody.string());
-                }catch (Exception e){
-
-                }
-
+            public void onNext(CategoryResponse categoryResponse) {
+                super.onNext(categoryResponse);
             }
         });
     }

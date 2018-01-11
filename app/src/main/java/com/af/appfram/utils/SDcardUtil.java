@@ -4,7 +4,10 @@ import android.os.Environment;
 import android.os.StatFs;
 import android.text.TextUtils;
 
+import com.af.appfram.MyApplication;
+
 import java.io.File;
+import java.io.IOException;
 
 /**
  * SD卡工具类
@@ -16,7 +19,7 @@ public final class SDcardUtil {
   }
 
   /** 默认根目录名称 */
-  private static String ROOT_DIR = "download";
+  private static final String ROOT_DIR = MyApplication.INSTANCE.getPackageName();
   /** 默认日志目录名称 */
   public static final String LOG_DIR = "logs";
 
@@ -42,22 +45,22 @@ public final class SDcardUtil {
    * 初始化目录
    */
   public static void initDir(String rd) {
-    if(!TextUtils.isEmpty(rootDir)){
+    if(!TextUtils.isEmpty(rd)){
        rootDir= rd;
     }else {
       rootDir = ROOT_DIR;
     }
 
     //默认根目录
-    String downloadRootPath = File.separator + rootDir + File.separator ;
+    String rootPath = File.separator + rootDir + File.separator ;
     //默认日志目录
-    String logDownloadPath = downloadRootPath + LOG_DIR + File.separator;
+    String logPath = rootPath + LOG_DIR + File.separator;
 
     try {
       if (isCanUseSD()) {
-        File root = Environment.getExternalStorageDirectory();
-        rootDir = checkDir(root.getAbsolutePath() + downloadRootPath);
-        logDir = checkDir(root.getAbsolutePath() + logDownloadPath);
+        String root = Environment.getExternalStorageDirectory().getPath();
+        rootDir = checkDir(root + rootPath);
+        logDir = checkDir(root + logPath);
       }
     } catch (Exception e) {
       e.printStackTrace();
@@ -74,7 +77,11 @@ public final class SDcardUtil {
   private static File checkFile(String path) {
     File file = new File(path);
     if (!file.exists()) {
-      file.mkdirs();
+      try {
+        file.createNewFile();
+      }catch (IOException e){
+        e.printStackTrace();
+      }
     }
     return file;
   }
@@ -95,7 +102,7 @@ public final class SDcardUtil {
    * 获取下载根目录
    */
   public static String getRootDir() {
-    if (rootDir == null) {
+    if (TextUtils.isEmpty(rootDir)) {
       initDir(rootDir);
     }
     return rootDir;
@@ -105,7 +112,7 @@ public final class SDcardUtil {
    * 获取日志文件的目录
    */
   public static String getLogDir() {
-    if (logDir == null) {
+    if (TextUtils.isEmpty(rootDir)) {
       initDir(rootDir);
     }
     return logDir;

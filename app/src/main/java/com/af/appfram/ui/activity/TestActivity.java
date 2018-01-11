@@ -5,9 +5,8 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.af.appfram.R;
+import com.af.appfram.aspectj.annotation.DataCollect;
 import com.af.appfram.contract.TestContract;
-import com.af.appfram.mvp.IView;
-import com.af.appfram.presenter.BasePresenter;
 import com.af.appfram.presenter.TestPresenter;
 
 /**
@@ -16,15 +15,18 @@ import com.af.appfram.presenter.TestPresenter;
 
 public class TestActivity extends BaseActivity<TestPresenter> implements TestContract.View{
 
+    @DataCollect(pointName = "initView")
     @Override
     protected void initView() {
         setContentView(R.layout.act_test);
     }
 
+
     public void doGet(View view){
         mPresenter.testGet();
     }
 
+    @DataCollect(pointName = "doPost")
     public void doPost(View view){
 
     }

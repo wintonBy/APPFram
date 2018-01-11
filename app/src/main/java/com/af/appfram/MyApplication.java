@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Application;
 import android.support.annotation.NonNull;
 
+import com.af.appfram.aspectj.annotation.DebugTrace;
 import com.af.appfram.constant.DevelopConfig;
 import com.af.appfram.crash.CrashHandler;
 import com.af.appfram.utils.LogUtils;
@@ -23,6 +24,7 @@ public class MyApplication extends Application {
 
     private List<WeakReference<Activity>> mActivitys;
 
+    @DebugTrace
     @Override
     public void onCreate() {
         super.onCreate();
@@ -34,6 +36,7 @@ public class MyApplication extends Application {
     /**
      * 初始化工具类
      */
+    @DebugTrace
     private void initUtils(){
         /*初始化SD卡工具类*/
         SDcardUtil.initDir(DevelopConfig.ROOT_DIR_NAME);
