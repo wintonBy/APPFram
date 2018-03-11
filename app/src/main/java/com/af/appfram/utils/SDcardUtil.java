@@ -58,7 +58,7 @@ public final class SDcardUtil {
 
     try {
       if (isCanUseSD()) {
-        String root = Environment.getExternalStorageDirectory().getPath();
+        String root = MyApplication.INSTANCE.getExternalFilesDir(null).getPath();
         rootDir = checkDir(root + rootPath);
         logDir = checkDir(root + logPath);
       }

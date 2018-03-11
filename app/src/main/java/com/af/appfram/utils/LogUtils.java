@@ -6,6 +6,7 @@ import android.util.Log;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -147,9 +148,9 @@ public class LogUtils {
         if (TextUtils.isEmpty(path)) {
             return false;
         }
-
         boolean written = false;
         try {
+
             BufferedWriter fw = new BufferedWriter(new FileWriter(path, true));
             fw.write(message);
             fw.flush();
@@ -182,7 +183,16 @@ public class LogUtils {
         if (!dir.exists()) {
             dir.mkdirs();
         }
-        return logDir + "/" + getLogFileName(cat);
+        String path = logDir + "/" + getLogFileName(cat);
+        File file = new File(path);
+        if(!file.exists()){
+            try{
+                file.createNewFile();
+            }catch (IOException e){
+                e.printStackTrace();
+            }
+        }
+        return path;
     }
 
 

@@ -39,7 +39,7 @@ public class MyApplication extends Application {
     @DebugTrace
     private void initUtils(){
         /*初始化SD卡工具类*/
-        SDcardUtil.initDir(DevelopConfig.ROOT_DIR_NAME);
+        SDcardUtil.initDir("");
         /*初始化日志工具类*/
         LogUtils.init(DevelopConfig.LOG_LEVEL,DevelopConfig.LOG_LEVEL,SDcardUtil.getLogDir());
         /*全局异常捕获*/
