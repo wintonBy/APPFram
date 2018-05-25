@@ -7,8 +7,7 @@ import android.support.annotation.NonNull;
 import com.af.appfram.aspectj.annotation.DebugTrace;
 import com.af.appfram.constant.DevelopConfig;
 import com.af.appfram.crash.CrashHandler;
-import com.af.appfram.utils.LogUtils;
-import com.af.appfram.utils.SDcardUtil;
+import com.blankj.utilcode.util.Utils;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
@@ -38,13 +37,8 @@ public class MyApplication extends Application {
      */
     @DebugTrace
     private void initUtils(){
-        /*初始化SD卡工具类*/
-        SDcardUtil.initDir("");
-        /*初始化日志工具类*/
-        LogUtils.init(DevelopConfig.LOG_LEVEL,DevelopConfig.LOG_LEVEL,SDcardUtil.getLogDir());
-        /*全局异常捕获*/
-        CrashHandler.getInstance().init();
-
+        /*初始化工具类*/
+        Utils.init(this);
     }
 
     public void addActivity(@NonNull WeakReference<Activity> activity){

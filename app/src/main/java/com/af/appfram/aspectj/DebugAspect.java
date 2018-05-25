@@ -1,7 +1,5 @@
 package com.af.appfram.aspectj;
 
-import com.af.appfram.utils.LogUtils;
-
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;

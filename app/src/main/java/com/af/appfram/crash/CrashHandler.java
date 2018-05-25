@@ -1,9 +1,5 @@
 package com.af.appfram.crash;
 
-import com.af.appfram.utils.LogUtils;
-
-import java.util.HashMap;
-
 /**
  * @author: winton
  * @time: 2017/11/3 9:39

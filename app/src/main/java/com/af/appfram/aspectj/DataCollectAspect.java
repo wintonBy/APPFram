@@ -3,12 +3,8 @@ package com.af.appfram.aspectj;
 import android.text.TextUtils;
 
 import com.af.appfram.aspectj.annotation.DataCollect;
-import com.af.appfram.utils.LogUtils;
 
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.Signature;
-import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;

@@ -47,8 +47,10 @@ dependencies {
     /*gson*/
     compile 'com.google.code.gson:gson:2.8.0'
 
+    /*切面*/
     compile 'org.aspectj:aspectjrt:1.8.9'
 
-
+    /*工具类*/
+    implementation 'com.blankj:utilcode:1.16.1'
 }
 
