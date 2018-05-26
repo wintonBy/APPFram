@@ -1,5 +1,6 @@
 package com.af.appfram.network.response;
 
+import com.af.appfram.model.Category;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -27,51 +28,8 @@ public class CategoryResponse {
      */
 
     private boolean error;
-    private List<ResultsBean> results;
+    private List<Category> results;
 
-    public static CategoryResponse objectFromData(String str) {
-
-        return new Gson().fromJson(str, CategoryResponse.class);
-    }
-
-    public static CategoryResponse objectFromData(String str, String key) {
-
-        try {
-            JSONObject jsonObject = new JSONObject(str);
-
-            return new Gson().fromJson(jsonObject.getString(str), CategoryResponse.class);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-        return null;
-    }
-
-    public static List<CategoryResponse> arrayCategoryResponseFromData(String str) {
-
-        Type listType = new TypeToken<ArrayList<CategoryResponse>>() {
-        }.getType();
-
-        return new Gson().fromJson(str, listType);
-    }
-
-    public static List<CategoryResponse> arrayCategoryResponseFromData(String str, String key) {
-
-        try {
-            JSONObject jsonObject = new JSONObject(str);
-            Type listType = new TypeToken<ArrayList<CategoryResponse>>() {
-            }.getType();
-
-            return new Gson().fromJson(jsonObject.getString(str), listType);
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-        return new ArrayList();
-
-
-    }
 
     public boolean isError() {
         return error;
@@ -81,161 +39,12 @@ public class CategoryResponse {
         this.error = error;
     }
 
-    public List<ResultsBean> getResults() {
+
+    public List<Category> getResults() {
         return results;
     }
 
-    public void setResults(List<ResultsBean> results) {
+    public void setResults(List<Category> results) {
         this.results = results;
-    }
-
-    public static class ResultsBean {
-        /**
-         * _id : 59f463ff421aa90fe72535cf
-         * createdAt : 2017-10-28T19:03:27.978Z
-         * desc : 是时候客观评价Retrofit了，这几点你必须明白！
-         * publishedAt : 2017-11-14T10:43:36.180Z
-         * source : web
-         * type : Android
-         * url : http://www.jianshu.com/p/1f10d5477566
-         * used : true
-         * who : Tamic (码小白)
-         * images : ["http://img.gank.io/0101e6bf-3042-495b-94d9-c88fb0bf60a6"]
-         */
-
-        private String _id;
-        private String createdAt;
-        private String desc;
-        private String publishedAt;
-        private String source;
-        private String type;
-        private String url;
-        private boolean used;
-        private String who;
-        private List<String> images;
-
-        public static ResultsBean objectFromData(String str) {
-
-            return new Gson().fromJson(str, ResultsBean.class);
-        }
-
-        public static ResultsBean objectFromData(String str, String key) {
-
-            try {
-                JSONObject jsonObject = new JSONObject(str);
-
-                return new Gson().fromJson(jsonObject.getString(str), ResultsBean.class);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-
-            return null;
-        }
-
-        public static List<ResultsBean> arrayResultsBeanFromData(String str) {
-
-            Type listType = new TypeToken<ArrayList<ResultsBean>>() {
-            }.getType();
-
-            return new Gson().fromJson(str, listType);
-        }
-
-        public static List<ResultsBean> arrayResultsBeanFromData(String str, String key) {
-
-            try {
-                JSONObject jsonObject = new JSONObject(str);
-                Type listType = new TypeToken<ArrayList<ResultsBean>>() {
-                }.getType();
-
-                return new Gson().fromJson(jsonObject.getString(str), listType);
-
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-
-            return new ArrayList();
-
-
-        }
-
-        public String get_id() {
-            return _id;
-        }
-
-        public void set_id(String _id) {
-            this._id = _id;
-        }
-
-        public String getCreatedAt() {
-            return createdAt;
-        }
-
-        public void setCreatedAt(String createdAt) {
-            this.createdAt = createdAt;
-        }
-
-        public String getDesc() {
-            return desc;
-        }
-
-        public void setDesc(String desc) {
-            this.desc = desc;
-        }
-
-        public String getPublishedAt() {
-            return publishedAt;
-        }
-
-        public void setPublishedAt(String publishedAt) {
-            this.publishedAt = publishedAt;
-        }
-
-        public String getSource() {
-            return source;
-        }
-
-        public void setSource(String source) {
-            this.source = source;
-        }
-
-        public String getType() {
-            return type;
-        }
-
-        public void setType(String type) {
-            this.type = type;
-        }
-
-        public String getUrl() {
-            return url;
-        }
-
-        public void setUrl(String url) {
-            this.url = url;
-        }
-
-        public boolean isUsed() {
-            return used;
-        }
-
-        public void setUsed(boolean used) {
-            this.used = used;
-        }
-
-        public String getWho() {
-            return who;
-        }
-
-        public void setWho(String who) {
-            this.who = who;
-        }
-
-        public List<String> getImages() {
-            return images;
-        }
-
-        public void setImages(List<String> images) {
-            this.images = images;
-        }
     }
 }

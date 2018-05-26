@@ -4,6 +4,7 @@ import android.app.Application;
 
 import com.af.appfram.MyApplication;
 import com.af.appfram.contract.TestContract;
+import com.af.appfram.model.Category;
 import com.af.appfram.network.BaseSubscriber;
 import com.af.appfram.network.RetrofitClient;
 import com.af.appfram.network.response.CategoryResponse;
@@ -26,7 +27,7 @@ public class TestPresenter extends BasePresenter<TestActivity> {
     }
 
     public void testGet(){
-        RetrofitClient.getInstance().getCategory("android", 1, 10, new BaseSubscriber<CategoryResponse>() {
+        Category.getCategoryList("android", 10, 1, new BaseSubscriber<CategoryResponse>() {
             @Override
             public void onSuccess(CategoryResponse categoryResponse) {
 

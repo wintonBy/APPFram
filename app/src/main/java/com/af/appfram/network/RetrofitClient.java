@@ -70,7 +70,7 @@ public class RetrofitClient {
      * 线程调度器
      * @return
      */
-    FlowableTransformer schedulersTransForm(){
+    public static FlowableTransformer schedulersTransForm(){
         return new FlowableTransformer(){
 
             @Override
@@ -96,10 +96,8 @@ public class RetrofitClient {
                 .subscribe(subscriber);
     }
 
-    public void getCategory(String category, int count , int page, Subscriber<CategoryResponse> subscriber){
-        mServer.getCategory(category,count,page)
-                .compose(schedulersTransForm())
-                .subscribe(subscriber);
+    public ServerApi getServer(){
+        return mServer;
     }
 
 }
