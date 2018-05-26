@@ -5,8 +5,6 @@ import android.app.Application;
 import android.support.annotation.NonNull;
 
 import com.af.appfram.aspectj.annotation.DebugTrace;
-import com.af.appfram.constant.DevelopConfig;
-import com.af.appfram.crash.CrashHandler;
 import com.blankj.utilcode.util.Utils;
 
 import java.lang.ref.WeakReference;

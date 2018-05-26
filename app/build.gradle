@@ -21,34 +21,34 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:25.1.0'
-    testCompile 'junit:junit:4.12'
+    implementation 'com.android.support:appcompat-v7:25.1.0'
+    testImplementation 'junit:junit:4.12'
 
     /*view 注解工具*/
-    compile 'com.jakewharton:butterknife:8.6.0'
+    implementation 'com.jakewharton:butterknife:8.6.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.6.0'
 
     /*retrofit*/
-    compile 'com.squareup.retrofit2:retrofit:2.3.0'
+    compile 'com.squareup.retrofit2:retrofit:2.4.0'
     compile 'com.squareup.retrofit2:converter-gson:2.3.0'
-    compile 'com.squareup.retrofit2:adapter-rxjava:2.3.0'
+    compile 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
 
     /*okHttp*/
-    compile 'com.squareup.okhttp3:okhttp:3.8.1'
+    implementation 'com.squareup.okhttp3:okhttp:3.8.1'
 
     /*rxjava*/
-    compile 'io.reactivex:rxjava:1.1.0'
-    compile 'io.reactivex:rxandroid:1.1.0'
+    implementation 'io.reactivex.rxjava2:rxjava:2.1.14'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.2'
 
     /*gson*/
-    compile 'com.google.code.gson:gson:2.8.0'
+    implementation 'com.google.code.gson:gson:2.8.0'
 
     /*切面*/
-    compile 'org.aspectj:aspectjrt:1.8.9'
+    implementation 'org.aspectj:aspectjrt:1.8.9'
 
     /*工具类*/
     implementation 'com.blankj:utilcode:1.16.1'

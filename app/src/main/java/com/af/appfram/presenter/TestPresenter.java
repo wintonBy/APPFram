@@ -26,11 +26,15 @@ public class TestPresenter extends BasePresenter<TestActivity> {
     }
 
     public void testGet(){
-
-        RetrofitClient.getInstance(MyApplication.INSTANCE).getCategory("android",10,1,new BaseSubscriber<CategoryResponse>(){
+        RetrofitClient.getInstance().getCategory("android", 1, 10, new BaseSubscriber<CategoryResponse>() {
             @Override
-            public void onNext(CategoryResponse categoryResponse) {
-                super.onNext(categoryResponse);
+            public void onSuccess(CategoryResponse categoryResponse) {
+
+            }
+
+            @Override
+            public void onFailure(Throwable t) {
+
             }
         });
     }
